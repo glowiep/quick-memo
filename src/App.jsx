@@ -1,10 +1,11 @@
 import './App.css';
-import Application from './components/Application';
+
+import TopNavigationBar from './components/TopNavigationBar';
 
 function App() {
   return (
     <div className="App">
-      <Application />
+      <TopNavigationBar />
     </div>
   );
 }
