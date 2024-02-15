@@ -42,6 +42,7 @@
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@mui/icons-material": "^5.15.10",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
     "babel-loader": "8.1.0",
