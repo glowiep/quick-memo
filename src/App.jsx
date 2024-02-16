@@ -1,5 +1,6 @@
 import './App.css';
 
+import AddMemoButton from './components/AddMemoButton';
 import NewMemo from './components/NewMemo';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -23,6 +24,7 @@ function App() {
       <CssBaseline />
       <div className="App">
         <Application />
+        <AddMemoButton />
         <NewMemo />
       </div>
     </ThemeProvider>

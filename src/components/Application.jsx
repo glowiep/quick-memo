@@ -1,12 +1,14 @@
-import React, { useState } from  "react";
+import React from  "react";
 // import './styles/Application.scss'
 import TopNavigationBar from "./TopNavigationBar";
+import MemoList from "./MemoList";
 
 const Application = () => {
-  const { darkMode, setDarkMode } = useState();
-  
   return (
-    <TopNavigationBar />
+    <main>
+      <TopNavigationBar />
+      <MemoList />
+    </main>
   )
 }
 
