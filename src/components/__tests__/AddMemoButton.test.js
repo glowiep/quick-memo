@@ -2,10 +2,10 @@ import React from "react";
 
 import { render, cleanup } from "@testing-library/react"
 
-import NewMemo from "../NewMemo";
+import AddMemoButton from "../AddMemoButton";
 
 afterEach(cleanup);
 
 it ("renders without crashing", () => {
-  render(<NewMemo />);
+  render(<AddMemoButton />);
 });
