@@ -10,8 +10,23 @@ const useApplicationData = () => {
     }));
   }
 
+  const toggleCreateMemo = () => {
+    if (state.showCreateMemo) {
+      setState((prevState) => ({
+        ...prevState,
+        showCreateMemo: false
+      }));
+    } else {
+      setState((prevState) => ({
+        ...prevState,
+        showCreateMemo: true
+      }));
+    }
+  }
+
   return {
-    toggleTheme
+    toggleTheme,
+    toggleCreateMemo
   }
 }
 
