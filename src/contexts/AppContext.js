@@ -2,7 +2,8 @@ import React, { createContext, useContext, useState } from 'react';
 
 const INITIAL_STATE = {
   darkMode: false,
-  memoData: []
+  memoData: [],
+  showTextField: false
 }
 
 // Create context
