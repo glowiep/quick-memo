@@ -6,6 +6,8 @@ import CreateMemo from './components/CreateMemo';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import TopNavigationBar from "./components/TopNavigationBar";
+import MemoList from './components/MemoList';
+import MemoListItem from './components/MemoListItem';
 import { useAppContext } from './contexts/AppContext';
 
 
@@ -26,6 +28,7 @@ function App() {
         <AddMemoButton />
         {state.showCreateMemo && <CreateMemo />}
       </div>
+        <MemoList />
     </ThemeProvider>
   );
 }

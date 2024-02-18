@@ -1,5 +1,9 @@
-.memo__add-button:hover {
-  transition: opacity 0.2s ease-out;
-  opacity: 0.7;
-  cursor: pointer;
+.memo__add-button{
+  margin-bottom: 0.5em;
+
+  &:hover {
+    transition: opacity 0.2s ease-out;
+    opacity: 0.7;
+    cursor: pointer;
+  }
 }
