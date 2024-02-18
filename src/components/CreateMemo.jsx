@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react"
+
+// Styling
 import '../styles/CreateMemo.scss';
 
 import { TextField  } from '@mui/material'
@@ -32,6 +34,7 @@ const CreateMemo = () => {
           margin: 1
         }}
       />
+      <button className="save-memo-btn">Add Memo</button>
     </div>
   )
 }

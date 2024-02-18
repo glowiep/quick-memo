@@ -22,8 +22,22 @@ const MemoListItem = (props) => {
         {props.memoItemData}
       </MemoPaper>
       <div className="memo-actions">
-        <BorderColorRoundedIcon onClick={()=>console.log("edit icon clicked")}/>
-        <DeleteRoundedIcon onClick={()=>console.log("delete clicked")}/>
+        <BorderColorRoundedIcon 
+          onClick={()=>console.log("edit icon clicked")}
+          sx={{
+            ":hover": {
+              cursor: "pointer",
+            },
+          }}
+        />
+        <DeleteRoundedIcon 
+          onClick={()=>console.log("delete clicked")} 
+          sx={{
+            ":hover": {
+              cursor: "pointer",
+            },
+          }}
+        />
       </div>
     </div>
   )
