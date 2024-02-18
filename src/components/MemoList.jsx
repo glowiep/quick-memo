@@ -6,16 +6,16 @@ import { Stack } from '@mui/material';
 // Styling
 import '../styles/MemoList.scss'
 
-import { memoData } from '../mocks/memoData.js';
+import memoData from '../mocks/memoData.js';
 
 const MemoList = () => {
   const memoItem = memoData[0];
   return(
   <div className="memo-list">
     <Stack direction="row" justifyContent="center"  spacing={2} useFlexGap flexWrap="wrap">
-      <MemoListItem memoItem={memoItem.memo}/>
-      <MemoListItem memoItem={memoItem.memo}/>
-      <MemoListItem memoItem={memoItem.memo}/>
+      <MemoListItem memoItemData={memoItem.memo}/>
+      <MemoListItem memoItemData={memoItem.memo}/>
+      <MemoListItem memoItemData={memoItem.memo}/>
     </Stack>
   </div>
   )
