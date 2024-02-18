@@ -9,7 +9,7 @@ import '../styles/MemoListItem.scss';
 
 const MemoPaper = styled(Paper)(({ theme }) => ({
   width: 300,
-  height: 200,
+  minHeight: 200,
   padding: theme.spacing(4),
   ...theme.typography.body2,
   textAlign: 'left',
