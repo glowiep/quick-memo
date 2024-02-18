@@ -9,13 +9,12 @@ import '../styles/MemoList.scss'
 import memoData from '../mocks/memoData.js';
 
 const MemoList = () => {
-  const memoItem = memoData[0];
   return(
   <div className="memo-list">
     <Stack direction="row" justifyContent="center"  spacing={2} useFlexGap flexWrap="wrap">
-      <MemoListItem memoItemData={memoItem.memo}/>
-      <MemoListItem memoItemData={memoItem.memo}/>
-      <MemoListItem memoItemData={memoItem.memo}/>
+      {memoData.map((memo, index) => (
+        <MemoListItem id={index} memoItemData={memo.memo}/>
+      ))}
     </Stack>
   </div>
   )
