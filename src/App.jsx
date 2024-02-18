@@ -5,17 +5,16 @@ import NewMemo from './components/NewMemo';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import Application from './components/Application';
+import TopNavigationBar from "./components/TopNavigationBar";
 import { useAppContext } from './contexts/AppContext';
 
 
 function App() {
   const { state } = useAppContext();
-  const darkMode = state.darkMode;
 
   const darkTheme = createTheme({
     palette: {
-      mode: darkMode ? 'dark' : 'light'
+      mode: state.darkMode ? 'dark' : 'light'
     }
   });
   
@@ -23,9 +22,9 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div className="App">
-        <Application />
+        <TopNavigationBar />
         <AddMemoButton />
-        <NewMemo />
+        {state.showTextArea && <NewMemo />}
       </div>
     </ThemeProvider>
   );
