@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 const INITIAL_STATE = {
   darkMode: false,
   memoData: [],
-  showTextField: false
+  showCreateMemo: false
 }
 
 // Create context

@@ -1,7 +1,7 @@
 import './App.css';
 
 import AddMemoButton from './components/AddMemoButton';
-import NewMemo from './components/NewMemo';
+import CreateMemo from './components/CreateMemo';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -24,7 +24,7 @@ function App() {
       <div className="App">
         <TopNavigationBar />
         <AddMemoButton />
-        {state.showTextArea && <NewMemo />}
+        {state.showCreateMemo && <CreateMemo />}
       </div>
     </ThemeProvider>
   );

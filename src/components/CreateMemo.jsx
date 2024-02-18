@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
-import '../styles/NewMemo.scss';
+import '../styles/CreateMemo.scss';
 
 import { TextField  } from '@mui/material'
 
-const NewMemo = () => {
+const CreateMemo = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth - 150)
   useEffect(() => {
     const handleResize = () => {
@@ -36,4 +36,4 @@ const NewMemo = () => {
   )
 }
 
-export default NewMemo;
+export default CreateMemo;
