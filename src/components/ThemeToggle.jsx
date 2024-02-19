@@ -27,7 +27,7 @@ const ThemeToggle = () => {
     <div>
       <Tooltip title="Toggle dark mode">
         <IconButton sx={{ ml: 1 }} color="inherit" onClick={() => toggleTheme()}>
-          {state.darkMode === 'true' ? <NightsStayRoundedIcon /> : <LightModeRoundedIcon />}
+          {state.darkMode ? <NightsStayRoundedIcon /> : <LightModeRoundedIcon />}
         </IconButton>
       </Tooltip>
     </div>
