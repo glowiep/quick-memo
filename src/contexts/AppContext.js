@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   darkMode: false,
   memoData: [
     {
+      id: 0,
       memo: "This is memo 1 text test test."
     }
   ],
