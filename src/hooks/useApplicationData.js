@@ -102,9 +102,16 @@ const useApplicationData = () => {
     });
   }
 
+  /**
+   * This function exports the memoData as a readable text file. 
+   * This is used as a handle click event in the TopNavigationBar component.
+   * @function
+   * @returns {void}
+   */
   const exportMemoData = () => {
     const memoData = state.memoData;
 
+    // Helper function to concatenate all memo strings into a readable format
     const getFileData = () => {
       let stringData = ""
       for (let i = 0; i < memoData.length; i++) {
