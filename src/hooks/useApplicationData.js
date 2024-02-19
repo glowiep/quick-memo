@@ -68,9 +68,12 @@ const useApplicationData = () => {
     setState((prevState) => {
       const newId = prevState.memoData.length;
 
+      const updatedMemoData = [...prevState.memoData, {id: newId, memo: prevState.createMemoText}];
+
+      window.localStorage.setItem('memoData', JSON.stringify(updatedMemoData))
       return {
       ...prevState,
-      memoData: [...prevState.memoData, {id: newId, memo: prevState.createMemoText}]
+      memoData: updatedMemoData
       }
     });
 
@@ -88,10 +91,15 @@ const useApplicationData = () => {
    * @returns {void}
    */
   const deleteMemo = (memoId) => {
-    setState((prevState) => ({
-      ...prevState,
-      memoData: [...prevState.memoData].filter(x => x.id !== memoId)
-    }));
+    setState((prevState) => {
+      const updatedMemoData = [...prevState.memoData].filter(x => x.id !== memoId);
+      window.localStorage.setItem('memoData', JSON.stringify(updatedMemoData));
+      
+      return {
+        ...prevState,
+        memoData: updatedMemoData
+      }
+    });
   }
 
   return {

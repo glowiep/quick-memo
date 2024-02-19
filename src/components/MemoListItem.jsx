@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
 import useApplicationData from "../hooks/useApplicationData";
-
+import { useAppContext } from "../contexts/AppContext";
 // Styling
 import '../styles/MemoListItem.scss';
 
@@ -18,6 +18,19 @@ const MemoPaper = styled(Paper)(({ theme }) => ({
 
 const MemoListItem = (props) => {
   const { deleteMemo } = useApplicationData();
+  const { setState } = useAppContext();
+
+  useEffect(() => {
+    const localMemoData = window.localStorage.getItem('memoData');
+    const parsedMemoData = localMemoData ? JSON.parse(localMemoData) : [];
+    
+    // Set memoData in state
+    setState((prevState) => ({
+      ...prevState,
+      memoData: parsedMemoData 
+    }))
+  }, [])
+
   return (
     <div className="memo-item-div">
       <MemoPaper square={false} elevation={6}>
