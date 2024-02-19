@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   memoData: [
     {
       id: 0,
-      memo: `Welcome to Quick Memo! \n\nClick the big ➕ button above to add a new memo. \n\n✅Refresh the page or close the window without losing your memos! \n✅Export your memos to a text file by clicking the export icon. `
+      memo: `✨ Welcome to Quick Memo! \n\nClick the big ➕ button above to add a new memo. \n\n✅Refresh the page or close the window without losing your memos! \n✅Export your memos to a text file by clicking the export icon. `
     }
   ],
   showCreateMemo: false,
