@@ -3,8 +3,10 @@ import '../styles/TopNavigationBar.scss';
 import ThemeToggle from "./ThemeToggle";
 import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
 import { Tooltip } from '@mui/material'
+import useApplicationData from "../hooks/useApplicationData";
 
 const TopNavigationBar = () => {
+  const { exportMemoData } = useApplicationData();
   return (
     <div className="top-nav-bar">
       
@@ -17,6 +19,7 @@ const TopNavigationBar = () => {
                 cursor: "pointer",
               }
             }}
+            onClick={() => exportMemoData()}
           />
         </Tooltip>
         <ThemeToggle />

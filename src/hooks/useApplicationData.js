@@ -1,5 +1,5 @@
 import { useAppContext } from "../contexts/AppContext";
-
+import { saveAs } from "file-saver";
 const useApplicationData = () => {
   const { state, setState } = useAppContext();
   
@@ -102,12 +102,31 @@ const useApplicationData = () => {
     });
   }
 
+  const exportMemoData = () => {
+    const memoData = state.memoData;
+
+    const getFileData = () => {
+      let textOnly = ""
+      for (let i = 0; i < memoData.length; i++) {
+        textOnly += `Memo #${i}:\n` + memoData[i].memo + "\n\n"
+      }
+      console.log(textOnly);
+      return textOnly;
+    }
+
+    const fileData = getFileData();
+    // Turn file data into a blob to create a new blob object
+    const blob = new Blob([fileData], { type: "text/plain;charset=utf-8" });  
+    saveAs(blob, "memo-export.txt");
+  }
+
   return {
     toggleTheme,
     toggleCreateMemo,
     handleCreateMemoInput,
     addNewMemo,
-    deleteMemo
+    deleteMemo,
+    exportMemoData
   }
 }
 
