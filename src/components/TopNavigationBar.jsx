@@ -10,12 +10,14 @@ const TopNavigationBar = () => {
     <div className="top-nav-bar">
       
       <span className="top-nav-bar__logo">✨ Quick Memo </span>
-      <Tooltip title="Download memos as text file">
-        <IosShareRoundedIcon />
-      </Tooltip>
-      <Tooltip title="Toggle dark mode">
-        <ThemeToggle />
-      </Tooltip>
+      <div className="nav-bar-actions">
+        <Tooltip title="Download memos as text file">
+          <IosShareRoundedIcon />
+        </Tooltip>
+        <Tooltip title="Toggle dark mode">
+          <ThemeToggle />
+        </Tooltip>
+      </div>
     </div>
   )
 }

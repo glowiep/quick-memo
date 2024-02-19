@@ -6,10 +6,10 @@ import '../styles/CreateMemo.scss';
 import { TextField  } from '@mui/material'
 
 const CreateMemo = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth - 150)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth * 0.85)
   useEffect(() => {
     const handleResize = () => {
-      setWindowWidth(window.innerWidth - 150);
+      setWindowWidth(window.innerWidth * 0.85);
     };
 
     // Attach the event listener
@@ -27,7 +27,7 @@ const CreateMemo = () => {
         id="filled-multiline-flexible"
         label="Write now, remember later!"
         multiline
-        maxRows={40}
+        maxRows={500}
         variant="filled"
         sx={{
           width: windowWidth,
