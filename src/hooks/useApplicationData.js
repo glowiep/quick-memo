@@ -106,12 +106,12 @@ const useApplicationData = () => {
     const memoData = state.memoData;
 
     const getFileData = () => {
-      let textOnly = ""
+      let stringData = ""
       for (let i = 0; i < memoData.length; i++) {
-        textOnly += `Memo #${i}:\n` + memoData[i].memo + "\n\n"
+        stringData += `Memo #${i}:\n` + memoData[i].memo + "\n\n"
       }
-      console.log(textOnly);
-      return textOnly;
+      console.log(stringData);
+      return stringData;
     }
 
     const fileData = getFileData();
