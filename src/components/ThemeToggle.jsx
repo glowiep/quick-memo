@@ -9,7 +9,6 @@ import { Tooltip } from '@mui/material';
 
 const ThemeToggle = () => {
   const { state, setState } = useAppContext();
-  const darkMode = state;
 
   const { toggleTheme } = useApplicationData();
 
@@ -33,7 +32,7 @@ const ThemeToggle = () => {
     <div>
       <Tooltip title="Toggle dark mode">
         <IconButton sx={{ ml: 1 }} color="inherit" onClick={() => toggleTheme()}>
-          {darkMode === 'true' ? <NightsStayRoundedIcon /> : <LightModeRoundedIcon />}
+          {state.darkMode === 'true' ? <NightsStayRoundedIcon /> : <LightModeRoundedIcon />}
         </IconButton>
       </Tooltip>
     </div>
