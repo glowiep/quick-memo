@@ -14,15 +14,16 @@ const MemoPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
   ...theme.typography.body2,
   textAlign: 'left',
+  whiteSpace: "pre-wrap"
 }));
 
 const MemoListItem = (props) => {
   const { deleteMemo } = useApplicationData();
-  const { setState } = useAppContext();
+  const { state, setState } = useAppContext();
 
   useEffect(() => {
     const localMemoData = window.localStorage.getItem('memoData');
-    const parsedMemoData = localMemoData ? JSON.parse(localMemoData) : [];
+    const parsedMemoData = localMemoData ? JSON.parse(localMemoData) : window.localStorage.setItem('memoData', JSON.stringify(state.memoData));
     
     // Set memoData in state
     setState((prevState) => ({
