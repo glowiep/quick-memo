@@ -4,10 +4,15 @@ const useApplicationData = () => {
   const { state, setState } = useAppContext();
   
   const toggleTheme = () => {
-    setState((prevState) => ({
-      ...prevState,
-      darkMode: !prevState.darkMode
-    }));
+    setState((prevState) => {
+      const updatedMode = !prevState.darkMode;
+      window.localStorage.setItem('darkMode', updatedMode);
+      
+      return {
+        ...prevState,
+        darkMode: !prevState.darkMode
+      }
+    });
   }
 
   const toggleCreateMemo = () => {

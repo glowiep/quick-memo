@@ -1,23 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAppContext } from "../contexts/AppContext";
 import useApplicationData from "../hooks/useApplicationData";
 
 import IconButton from '@mui/material/IconButton';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
-
+import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
+import NightsStayRoundedIcon from '@mui/icons-material/NightsStayRounded';
+import { Tooltip } from '@mui/material';
 
 const ThemeToggle = () => {
-  const { state } = useAppContext();
+  const { state, setState } = useAppContext();
   const darkMode = state;
 
   const { toggleTheme } = useApplicationData();
 
+  useEffect(() => {
+    const localTheme = window.localStorage.getItem('darkMode');
+    if (localTheme) {
+      setState((prevState) => ({
+        ...prevState,
+        darkMode: localTheme === 'true'
+      }))
+    } else {
+      setState((prevState) => ({
+        ...prevState,
+        darkMode: false
+      }))
+    }
+  }, [state.darkmode])
+  
+
   return (
     <div>
-      <IconButton sx={{ ml: 1 }} color="inherit" onClick={() => toggleTheme()}>
-        {darkMode === 'true' ? <Brightness7Icon /> : <Brightness4Icon />}
-      </IconButton>
+      <Tooltip title="Toggle dark mode">
+        <IconButton sx={{ ml: 1 }} color="inherit" onClick={() => toggleTheme()}>
+          {darkMode === 'true' ? <NightsStayRoundedIcon /> : <LightModeRoundedIcon />}
+        </IconButton>
+      </Tooltip>
     </div>
   );
 }

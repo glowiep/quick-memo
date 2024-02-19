@@ -13,7 +13,7 @@ const MemoList = () => {
   <div className="memo-list">
     <Stack direction="row" justifyContent="center"  spacing={2} useFlexGap flexWrap="wrap">
       {memoData.map((memo, index) => (
-        <MemoListItem id={index} memoItemData={memo.memo}/>
+        <MemoListItem key={index} memoItemData={memo.memo}/>
       ))}
     </Stack>
   </div>
