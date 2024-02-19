@@ -35,6 +35,7 @@ const CreateMemo = () => {
         multiline
         maxRows={500}
         variant="filled"
+        autoFocus="true"
         sx={{
           width: windowWidth,
           margin: 1
