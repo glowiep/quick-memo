@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import useApplicationData from "../hooks/useApplicationData";
 
 // Styling
 import '../styles/CreateMemo.scss';
@@ -6,7 +7,9 @@ import '../styles/CreateMemo.scss';
 import { TextField  } from '@mui/material'
 
 const CreateMemo = () => {
+  const { handleCreateMemoInput } = useApplicationData();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth * 0.85)
+
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth * 0.85);
@@ -33,6 +36,7 @@ const CreateMemo = () => {
           width: windowWidth,
           margin: 1
         }}
+        onChange={(event) => handleCreateMemoInput(event)}
       />
       <button className="save-memo-btn">Add Memo</button>
     </div>
