@@ -1,9 +1,12 @@
-import { light } from '@mui/material/styles/createPalette';
 import React, { createContext, useContext, useState } from 'react';
 
 const INITIAL_STATE = {
   darkMode: false,
-  memoData: [],
+  memoData: [
+    {
+      memo: "This is memo 1 text test test."
+    }
+  ],
   showCreateMemo: false,
   createMemoText: ""
 }

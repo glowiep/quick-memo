@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import useApplicationData from "../hooks/useApplicationData";
+import { useAppContext } from "../contexts/AppContext";
 
 // Styling
 import '../styles/CreateMemo.scss';
@@ -7,9 +8,11 @@ import '../styles/CreateMemo.scss';
 import { TextField  } from '@mui/material'
 
 const CreateMemo = () => {
-  const { handleCreateMemoInput } = useApplicationData();
+  const { state } = useAppContext();
+  const { handleCreateMemoInput, addNewMemo } = useApplicationData();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth * 0.85)
 
+  // Responsive TextArea width based on window width
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth * 0.85);
@@ -36,9 +39,10 @@ const CreateMemo = () => {
           width: windowWidth,
           margin: 1
         }}
+        value={state.createMemoText}
         onChange={(event) => handleCreateMemoInput(event)}
       />
-      <button className="save-memo-btn">Add Memo</button>
+      <button className="save-memo-btn" onClick={() => addNewMemo()}>Add Memo</button>
     </div>
   )
 }
