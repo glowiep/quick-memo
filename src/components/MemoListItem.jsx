@@ -38,14 +38,14 @@ const MemoListItem = (props) => {
         {props.memoItemData}
       </MemoPaper>
       <div className="memo-actions">
-        <BorderColorRoundedIcon 
+        {/* <BorderColorRoundedIcon 
           onClick={()=>console.log("edit icon clicked")}
           sx={{
             ":hover": {
               cursor: "pointer",
             },
           }}
-        />
+        /> */}
         <DeleteRoundedIcon 
           onClick={() => deleteMemo(props.id)} 
           sx={{
