@@ -19,11 +19,6 @@ const ThemeToggle = () => {
         ...prevState,
         darkMode: localTheme === 'true'
       }))
-    } else {
-      setState((prevState) => ({
-        ...prevState,
-        darkMode: false
-      }))
     }
   }, [state.darkmode])
   

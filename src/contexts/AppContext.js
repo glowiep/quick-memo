@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 
 const INITIAL_STATE = {
-  darkMode: false,
+  darkMode: window.matchMedia("(prefers-color-scheme: dark)").matches,
   memoData: [
     {
       id: 0,
