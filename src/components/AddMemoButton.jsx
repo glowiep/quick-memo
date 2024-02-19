@@ -1,5 +1,6 @@
 import React from "react";
 import '../styles/AddMemoButton.scss';
+import { Tooltip } from '@mui/material'
 
 import useApplicationData from "../hooks/useApplicationData";
 
@@ -8,12 +9,14 @@ const AddMemoButton = () => {
 
   return (
     <div className="add-memo-button">
-      <img 
-        className="memo__add-button" 
-        src="images/add.png"
-        alt="Add Memo"
-        onClick={() => toggleCreateMemo()}
-      />
+      <Tooltip title="Create new Memo">
+        <img 
+          className="memo__add-button" 
+          src="images/add.png"
+          alt="Create new Memo"
+          onClick={() => toggleCreateMemo()}
+        />
+      </Tooltip>
     </div>
   )
 }
