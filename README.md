@@ -8,8 +8,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Memo data kept in localStorage - Refresh the page or close the browser window without losing existing memos.
 - Export to text file - Click on the export icon on the navigation bar to export all memos into a text file.
 
-![Quick Memo landing page](./docs/quick-memo-landing.png)
-
 The memos will be reorganized according to responsive design on the page:
 
 ![Quick Memo landing page](./docs/add-memo-data.png)
