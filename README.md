@@ -11,12 +11,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ![Quick Memo landing page](./docs/quick-memo-landing.png)
 
 The memos will be reorganized according to responsive design on the page:
+
 ![Quick Memo landing page](./docs/add-memo-data.png)
 
 On Smaller screens:
+
 ![Quick Memo landing page](./docs/memo-responsive.png)
 
 Exported memos in text file preview:
+
 ![Memo export preview](./docs/memo-export.png)
 
 ## ✨ Getting Started
