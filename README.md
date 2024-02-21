@@ -32,3 +32,4 @@ Exported memos in text file preview:
 - <a href="https://babeljs.io/"> Babel</a>
 - <a href="https://sass-lang.com/documentation/"> Sass</a>
 - <a href="https://mui.com/material-ui/"> Material UI (MUI)</a>
+- <a href="https://www.npmjs.com/package/file-saver"> file-saver </a> (Solution to saving files on the client-side)
