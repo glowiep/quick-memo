@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.github-btn {
+  position: relative;
+  z-index: 3;
+  bottom: 30px;
+  right: 10px;
+  margin-top: 6em;
+}
