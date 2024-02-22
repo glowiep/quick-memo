@@ -127,13 +127,36 @@ const useApplicationData = () => {
     saveAs(blob, "memo-export.txt");
   }
 
+  /**
+   * This clears all memos in the list and reset it to the initial state
+   * @function
+   * @returns {void}
+   */
+  const clearAll = () => {
+    setState((prevState) => {
+      const resetMemoData = [
+        {
+          id: 0,
+          memo: `✨ Welcome to Quick Memo! \n\nClick the big ➕ button above to add a new memo. \n\n✅Refresh the page or close the window without losing your memos! \n✅Export your memos to a text file by clicking the export icon. `
+        }
+      ];
+      window.localStorage.setItem('memoData', JSON.stringify(resetMemoData));
+      
+      return {
+        ...prevState,
+        memoData: resetMemoData
+      }
+    });
+  }
+
   return {
     toggleTheme,
     toggleCreateMemo,
     handleCreateMemoInput,
     addNewMemo,
     deleteMemo,
-    exportMemoData
+    exportMemoData,
+    clearAll
   }
 }
 
