@@ -7,3 +7,11 @@
   direction: row;
   padding-top: 0.5em;
 }
+
+#copied-memo-span {
+  display: flex;
+  direction: row;
+  margin-top: 0.4em;
+  font-size: 13px;
+  color: rgb(164, 164, 164);
+}

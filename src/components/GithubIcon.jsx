@@ -6,7 +6,7 @@ const GithubIcon = () => {
   return (
     <Tooltip title="View in Github">
       <div id="visit-github" type="button" >
-        <a href="https://github.com/glowiep/quick-memo" target="_blank">
+        <a href="https://github.com/glowiep/quick-memo" target="_blank" rel="noreferrer">
           <GitHubIcon color="secondary" sx={{
             height: "large"
           }}/>

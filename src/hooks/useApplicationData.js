@@ -147,7 +147,48 @@ const useApplicationData = () => {
         memoData: resetMemoData
       }
     });
-  }
+  };
+
+
+  // Helper function that accepts text as an argument and copies it to the user’s clipboard
+  async function copyTextToClipboard(text) {
+    if ('clipboard' in navigator) {
+      // if the browser supports the Clipboard API
+      return await navigator.clipboard.writeText(text);
+    } else {
+      return document.execCommand('copy', true, text);
+    }
+  };
+
+  /**
+   * This copies the memo text to the users clipboard
+   * @function
+   * @returns {void}
+   */
+  const copyMemo = (memoId) => {
+    const memoText = state.memoData.filter(memo => memo.id === memoId)[0].memo;
+    console.log(memoText)
+    copyTextToClipboard(memoText)
+      .then(() => {
+        // If successful, update the isCopied state value
+        setState((prevState) => ({
+          ...prevState,
+          isCopied: true
+        }));
+
+        setTimeout(() => {
+          setState((prevState) => ({
+            ...prevState,
+            isCopied: false
+          }));
+        }, 1500)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+
+  };
+  
 
   return {
     toggleTheme,
@@ -156,7 +197,8 @@ const useApplicationData = () => {
     addNewMemo,
     deleteMemo,
     exportMemoData,
-    clearAll
+    clearAll,
+    copyMemo
   }
 }
 

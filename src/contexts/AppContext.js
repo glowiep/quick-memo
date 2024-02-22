@@ -9,7 +9,8 @@ const INITIAL_STATE = {
     }
   ],
   showCreateMemo: false,
-  createMemoText: ""
+  createMemoText: "",
+  isCopied: false
 }
 
 // Create context

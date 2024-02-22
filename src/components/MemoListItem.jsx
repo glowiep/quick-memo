@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import { Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
+
 import useApplicationData from "../hooks/useApplicationData";
 import { useAppContext } from "../contexts/AppContext";
 // Styling
@@ -18,7 +20,7 @@ const MemoPaper = styled(Paper)(({ theme }) => ({
 }));
 
 const MemoListItem = (props) => {
-  const { deleteMemo } = useApplicationData();
+  const { deleteMemo, copyMemo } = useApplicationData();
   const { state, setState } = useAppContext();
 
   useEffect(() => {
@@ -46,6 +48,15 @@ const MemoListItem = (props) => {
             },
           }}
         /> */}
+        <ContentCopyIcon
+          onClick={() => copyMemo(props.id)} 
+          fontSize="small"
+          sx={{
+            ":hover": {
+              cursor: "pointer",
+            },
+          }}
+        />
         <DeleteRoundedIcon 
           onClick={() => deleteMemo(props.id)} 
           sx={{
@@ -55,6 +66,7 @@ const MemoListItem = (props) => {
           }}
         />
       </div>
+      <span id="copied-memo-span">{state.isCopied ? "Copied to clipboard!" : ""}</span>
     </div>
   )
 }
