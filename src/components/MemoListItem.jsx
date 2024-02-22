@@ -65,8 +65,8 @@ const MemoListItem = (props) => {
             },
           }}
         />
+      <span id="copied-memo-span">{state.copiedMemoId === props.id ? "Copied to clipboard!" : ""}</span>
       </div>
-      <span id="copied-memo-span">{state.isCopied ? "Copied to clipboard!" : ""}</span>
     </div>
   )
 }

@@ -68,7 +68,7 @@ const useApplicationData = () => {
     setState((prevState) => {
       const newId = prevState.memoData.length;
 
-      const updatedMemoData = [...prevState.memoData, {id: newId, memo: prevState.createMemoText}];
+      const updatedMemoData = [{id: newId, memo: prevState.createMemoText}, ...prevState.memoData];
 
       window.localStorage.setItem('memoData', JSON.stringify(updatedMemoData))
       return {
@@ -167,26 +167,27 @@ const useApplicationData = () => {
    */
   const copyMemo = (memoId) => {
     const memoText = state.memoData.filter(memo => memo.id === memoId)[0].memo;
-    console.log(memoText)
+    
     copyTextToClipboard(memoText)
       .then(() => {
         // If successful, update the isCopied state value
         setState((prevState) => ({
           ...prevState,
-          isCopied: true
+          isCopied: true,
+          copiedMemoId: memoId
         }));
 
         setTimeout(() => {
           setState((prevState) => ({
             ...prevState,
-            isCopied: false
+            isCopied: false,
+            copiedMemoId: null
           }));
         }, 1500)
       })
       .catch((err) => {
         console.log(err);
       })
-
   };
   
 

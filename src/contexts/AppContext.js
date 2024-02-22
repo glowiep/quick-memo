@@ -10,7 +10,8 @@ const INITIAL_STATE = {
   ],
   showCreateMemo: false,
   createMemoText: "",
-  isCopied: false
+  isCopied: false,
+  copiedMemoId: null
 }
 
 // Create context
