@@ -4,9 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 ## ✅ Features
-- Dark Mode toggle - Uses system setting on initial load.
-- Memo data kept in localStorage - Refresh the page or close the browser window without losing existing memos.
-- Export to text file - Click on the export icon on the navigation bar to export all memos into a text file.
+- 🌙 <b>Dark Mode toggle </b>
+  - Uses system setting on initial load.
+- 📦 <b>Memo data kept in localStorage </b>
+  - Refresh the page or close the browser window without losing existing memos.
+- 📤 <b>Export to text file</b> 
+  - Click on the export icon on the navigation bar to export all memos into a text file.
 
 The memos will be reorganized according to responsive design on the page:
 
