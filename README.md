@@ -10,6 +10,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - Refresh the page or close the browser window without losing existing memos.
 - 📤 <b>Export to text file</b> 
   - Click on the export icon on the navigation bar to export all memos into a text file.
+- 📋 <b>Copy & Delete</b>
+  - Click on the clipboard icon to copy a specific memo.
+  - Click on the trash icon to delete a memo.
 
 The memos will be reorganized according to responsive design on the page:
 
