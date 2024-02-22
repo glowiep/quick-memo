@@ -114,8 +114,8 @@ const useApplicationData = () => {
     // Helper function to concatenate all memo strings into a readable format
     const getFileData = () => {
       let stringData = ""
-      for (let i = 0; i < memoData.length; i++) {
-        stringData += `Memo #${i + 1}:\n` + memoData[i].memo + "\n\n"
+      for (let i = memoData.length - 1; i >= 0; i--) {
+        stringData += `Memo #${memoData[i].id + 1}:\n` + memoData[i].memo + "\n\n"
       }
       console.log(stringData);
       return stringData;
