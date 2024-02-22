@@ -1,8 +1,9 @@
 import './App.css';
-import GitHubIcon from '@mui/icons-material/GitHub';
 
 import AddMemoButton from './components/AddMemoButton';
 import CreateMemo from './components/CreateMemo';
+import ClearAllButton from './components/ClearAllButton';
+import GithubIcon from './components/GithubIcon';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -28,15 +29,8 @@ function App() {
         <AddMemoButton />
         {state.showCreateMemo && <CreateMemo />}
         <MemoList />
-        <Tooltip title="View in Github">
-          <div id="visit-github" type="button" class="github-btn" >
-            <a href="https://github.com/glowiep/quick-memo" target="_blank">
-              <GitHubIcon sx={{
-                height: "large"
-              }}/>
-            </a>
-          </div>
-        </Tooltip>
+        <ClearAllButton />
+        <GithubIcon />
       </div>
     </ThemeProvider>
   );

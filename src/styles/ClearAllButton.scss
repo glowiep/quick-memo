@@ -1,0 +1,25 @@
+.clear-all-btn {
+  padding: 8px 18px;
+	display: inline-block;
+  border-color: transparent;
+	border-radius:4%;
+	background:#e5e5e5;
+	font-size: 14px;
+  font-weight: 700;
+	color:#333;
+  margin: 2em; 
+
+  &:hover {
+    transition: opacity 0.2s ease-out;
+    cursor: pointer;
+    background-color: #b3b3b3;
+  }
+}
+
+@media (max-width: 425px) {
+  .clear-all-btn {
+    font-size: 12px;
+    padding: 7px 15px;
+    font-weight: 800;
+  }
+}
