@@ -200,7 +200,7 @@ const useApplicationData = () => {
     exportMemoData,
     clearAll,
     copyMemo
-  }
-}
+  };
+};
 
 export default useApplicationData;

@@ -39,3 +39,22 @@ Exported memos in text file preview:
 - <a href="https://sass-lang.com/documentation/"> Sass</a>
 - <a href="https://mui.com/material-ui/"> Material UI (MUI)</a>
 - <a href="https://www.npmjs.com/package/file-saver"> file-saver </a> (Solution to saving files on the client-side)
+
+## 🪄 Future improvements
+- Search bar  
+  - Filters the memo list based on search input.
+- Star memos 
+  - Starred memos appear on the top of memo list.
+- Memo titles 
+  - Option to add a title to each memo.
+- Panels 
+  - Option to create panels for organizing multiple multiple memo lists.
+- Interactive memo cards
+  - Drag and rearrange memo cards.
+- Memo create date
+  - Include date and time the memo was created.
+- Edit memo
+  - Add edit icon to allow memo modifications.
+- Text options in create memo
+  - Options to highlight, bold text etc during memo creation.
+  - Option to post snapshots/ copied images.
