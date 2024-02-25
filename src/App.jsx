@@ -10,7 +10,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TopNavigationBar from "./components/TopNavigationBar";
 import MemoList from './components/MemoList';
 import { useAppContext } from './contexts/AppContext';
-import { Tooltip } from '@mui/material'
 
 function App() {
   const { state } = useAppContext();

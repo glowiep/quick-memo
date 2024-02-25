@@ -3,7 +3,7 @@ import { Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
+// import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
 
 import useApplicationData from "../hooks/useApplicationData";
 import { useAppContext } from "../contexts/AppContext";
