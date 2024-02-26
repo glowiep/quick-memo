@@ -12,7 +12,7 @@ const AddMemoButton = () => {
       <Tooltip title="Create new Memo">
         <img 
           className="memo__add-button" 
-          src="../../public/images/add.png"
+          src="images/add.png"
           alt="Create new Memo"
           onClick={() => toggleCreateMemo()}
         />
