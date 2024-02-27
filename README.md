@@ -30,7 +30,7 @@ Exported memos in text file preview:
 ## ✨ Getting Started
 - Fork and clone this repo.
 - Run  ```npm install``` in the root directory of the project to install dependencies.
-- Run ```np start```
+- Run ```npm start```
 
 ## 🔧 Technical Specifications
 - This project was bootstrapped with <a href="https://reactjs.org/docs/create-a-new-react-app.html#gatsby-focus-wrapper"> Create React App</a>
