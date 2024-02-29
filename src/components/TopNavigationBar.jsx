@@ -10,7 +10,7 @@ const TopNavigationBar = () => {
   return (
     <div className="top-nav-bar">
       
-      <span className="top-nav-bar__logo">✨ Quick Memo </span>
+      <span className="top-nav-bar__logo">⚡ Quick Memo </span>
       <div className="nav-bar-actions">
         <Tooltip title="Export as text file">
           <IosShareRoundedIcon 
