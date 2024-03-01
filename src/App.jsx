@@ -27,8 +27,8 @@ function App() {
       <CssBaseline />
       <div className="App">
         <TopNavigationBar />
-        <div className="nav-actions">
-          <SearchBar />
+        <div className="app-actions">
+          {!state.showCreateMemo && <SearchBar />}
           <AddMemoButton />
           {state.showCreateMemo && <CreateMemo />}
         </div>
