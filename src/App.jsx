@@ -1,4 +1,5 @@
 import './App.css';
+import './App.scss';
 
 import AddMemoButton from './components/AddMemoButton';
 import CreateMemo from './components/CreateMemo';
@@ -7,6 +8,7 @@ import GithubIcon from './components/GithubIcon';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import SearchBar from './components/SearchBar';
 import TopNavigationBar from "./components/TopNavigationBar";
 import MemoList from './components/MemoList';
 import { useAppContext } from './contexts/AppContext';
@@ -25,8 +27,11 @@ function App() {
       <CssBaseline />
       <div className="App">
         <TopNavigationBar />
-        <AddMemoButton />
-        {state.showCreateMemo && <CreateMemo />}
+        <div className="nav-actions">
+          <SearchBar />
+          <AddMemoButton />
+          {state.showCreateMemo && <CreateMemo />}
+        </div>
         <MemoList />
         <ClearAllButton />
         <GithubIcon />
