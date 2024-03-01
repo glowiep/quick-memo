@@ -189,6 +189,30 @@ const useApplicationData = () => {
         console.log(err);
       })
   };
+
+  /** Updates the searchValue state based on the selected search value
+   * @function
+   * @returns {void}
+   */
+  const updateSearchValue = (newValue) => {
+    console.log(state.searchValue)
+    setState((prevState) => ({
+      ...prevState,
+      searchValue: newValue
+    }));
+  };
+
+  /** Updates the searchInput state based on the search input field
+   * @function
+   * @returns {void}
+   */
+  const updateSearchInput = (input) => {
+    console.log(state.searchValue)
+    setState((prevState) => ({
+      ...prevState,
+      searchInput: input
+    }));
+  };
   
 
   return {
@@ -199,7 +223,9 @@ const useApplicationData = () => {
     deleteMemo,
     exportMemoData,
     clearAll,
-    copyMemo
+    copyMemo,
+    updateSearchValue,
+    updateSearchInput
   };
 };
 
