@@ -1,7 +1,5 @@
 import React from "react";
 import { TextField, Autocomplete } from "@mui/material";
-// Styling
-import '../styles/SearchBar.scss';
 
 import { useAppContext } from "../contexts/AppContext";
 import useApplicationData from "../hooks/useApplicationData";
