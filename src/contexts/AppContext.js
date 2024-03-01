@@ -13,7 +13,9 @@ const INITIAL_STATE = {
   createMemoText: "",
   isCopied: false,
   copiedMemoId: null,
-  searchValue: ""
+  searchValue: "",
+  searchInput: "",
+  searchInputIDs: []
 }
 
 // Create context
