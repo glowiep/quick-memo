@@ -63,10 +63,10 @@ const useApplicationData = () => {
     if (state.createMemoText.length === 0) {
       return console.log("Cannot sumbit empty memo!");
     }
-    
+    console.log(state.memoData)
     // Adds the new memo to the memoData array in state
     setState((prevState) => {
-      const newId = prevState.memoData.length;
+      const newId = crypto.randomUUID();
 
       const updatedMemoData = [{id: newId, memo: prevState.createMemoText}, ...prevState.memoData];
 
