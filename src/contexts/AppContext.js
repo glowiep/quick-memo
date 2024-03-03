@@ -1,4 +1,23 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
+
+export const ACTIONS = {
+  TOGGLE_THEME: 'TOGGLE_THEME',
+  
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case ACTIONS.TOGGLE_THEME:
+      return {
+        ...prevState,
+        darkMode: !prevState.darkMode
+      }
+    default:
+      throw new Error(
+        `Tried to reduce with unsupport action type: ${action.type}`
+      );
+  }
+};
 
 const darkModeSupported = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
 const INITIAL_STATE = {
@@ -15,7 +34,8 @@ const INITIAL_STATE = {
   copiedMemoId: null,
   searchValue: "",
   searchInput: "",
-  searchInputIDs: []
+  searchInputIDs: [],
+  memoListData: []
 }
 
 // Create context
@@ -24,10 +44,10 @@ const AppContext = createContext();
 // Provider component to wrap app
 export const AppProvider = ({ children }) => {
   // Entire state of the application
-  const [state, setState] = useState(INITIAL_STATE);
+  const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
   return (
-    <AppContext.Provider value={{ state, setState }}>
+    <AppContext.Provider value={{ state, dispatch }}>
       {children}
     </AppContext.Provider>
   );
@@ -35,4 +55,4 @@ export const AppProvider = ({ children }) => {
 
 export const useAppContext = ()=> {
   return useContext(AppContext)
-}
+};
