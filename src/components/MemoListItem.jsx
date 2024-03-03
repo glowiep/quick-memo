@@ -6,7 +6,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 // import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
 
 import useApplicationData from "../hooks/useApplicationData";
-import { useAppContext } from "../contexts/AppContext";
+import { ACTIONS, useAppContext } from "../contexts/AppContext";
 // Styling
 import '../styles/MemoListItem.scss';
 
@@ -21,18 +21,14 @@ const MemoPaper = styled(Paper)(({ theme }) => ({
 
 const MemoListItem = (props) => {
   const { deleteMemo, copyMemo } = useApplicationData();
-  const { state, setState } = useAppContext();
+  const { state, dispatch } = useAppContext();
 
   useEffect(() => {
     const localMemoData = window.localStorage.getItem('memoData');
     const parsedMemoData = localMemoData ? JSON.parse(localMemoData) : window.localStorage.setItem('memoData', JSON.stringify(state.memoData));
-    
     // Set memoData in state
-    setState((prevState) => ({
-      ...prevState,
-      memoData: parsedMemoData 
-    }))
-  }, [])
+    dispatch({ type: ACTIONS.USE_LOCAL_STORAGE_MEMO_DATA, payload: parsedMemoData });
+  }, [state.memoData, dispatch])
 
   return (
     <div className="memo-item-div">

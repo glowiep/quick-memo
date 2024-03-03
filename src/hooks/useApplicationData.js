@@ -1,7 +1,7 @@
-import { useAppContext } from "../contexts/AppContext";
+import { ACTIONS, useAppContext } from "../contexts/AppContext";
 import { saveAs } from "file-saver";
 const useApplicationData = () => {
-  const { state, setState } = useAppContext();
+  const { state, dispatch } = useAppContext();
   
   /**
    * This function is called when the darkMode toggle is clicked
@@ -9,16 +9,8 @@ const useApplicationData = () => {
    * @returns {void}
    */
   const toggleTheme = () => {
-    setState((prevState) => {
-      const updatedMode = !prevState.darkMode;
-      window.localStorage.setItem('darkMode', updatedMode);
-      
-      return {
-        ...prevState,
-        darkMode: !prevState.darkMode
-      }
-    });
-  }
+    dispatch({ type: ACTIONS.TOGGLE_THEME });
+  };
 
   /**
    * This function is called when the + button is clicked to expand the section to add a new memo
@@ -26,18 +18,8 @@ const useApplicationData = () => {
    * @returns {void}
    */
   const toggleCreateMemo = () => {
-    if (state.showCreateMemo) {
-      setState((prevState) => ({
-        ...prevState,
-        showCreateMemo: false
-      }));
-    } else {
-      setState((prevState) => ({
-        ...prevState,
-        showCreateMemo: true
-      }));
-    }
-  }
+    dispatch({ type: ACTIONS.TOGGLE_CREATE_MEMO });
+  };
 
   /**
    * This function is called when the + button is clicked to expand the section to add a new memo
@@ -46,10 +28,7 @@ const useApplicationData = () => {
    * @returns {void}
    */
   const handleCreateMemoInput = (event) => {
-    setState((prevState) => ({
-      ...prevState,
-      createMemoText: event.target.value
-    }));
+    dispatch({ type: ACTIONS.HANDLE_CREATE_MEMO_INPUT, payload: event.target.value });
   };
 
   /**
@@ -63,26 +42,8 @@ const useApplicationData = () => {
     if (state.createMemoText.length === 0) {
       return console.log("Cannot sumbit empty memo!");
     }
-    console.log(state.memoData)
-    // Adds the new memo to the memoData array in state
-    setState((prevState) => {
-      const newId = crypto.randomUUID();
-
-      const updatedMemoData = [{id: newId, memo: prevState.createMemoText}, ...prevState.memoData];
-
-      window.localStorage.setItem('memoData', JSON.stringify(updatedMemoData))
-      return {
-      ...prevState,
-      memoData: updatedMemoData
-      }
-    });
-
-    // Clear createMemoText state to reset text area value
-    setState((prevState) => ({
-      ...prevState,
-      createMemoText: ""
-    }));
-  }
+    dispatch({ type: ACTIONS.ADD_NEW_MEMO });
+  };
 
   /**
    * This handles the click event for the delete memo trash icon
@@ -91,16 +52,8 @@ const useApplicationData = () => {
    * @returns {void}
    */
   const deleteMemo = (memoId) => {
-    setState((prevState) => {
-      const updatedMemoData = [...prevState.memoData].filter(x => x.id !== memoId);
-      window.localStorage.setItem('memoData', JSON.stringify(updatedMemoData));
-      
-      return {
-        ...prevState,
-        memoData: updatedMemoData
-      }
-    });
-  }
+    dispatch({ type: ACTIONS.DELETE_MEMO, payload: memoId });
+  };
 
   /**
    * This function exports the memoData as a readable text file. 
@@ -133,20 +86,7 @@ const useApplicationData = () => {
    * @returns {void}
    */
   const clearAll = () => {
-    setState((prevState) => {
-      const resetMemoData = [
-        {
-          id: 0,
-          memo: `✨ Welcome to Quick Memo! \n\nClick the big ➕ button above to add a new memo. \n\n✅Refresh the page or close the window without losing your memos! \n✅Export your memos to a text file by clicking the export icon. `
-        }
-      ];
-      window.localStorage.setItem('memoData', JSON.stringify(resetMemoData));
-      
-      return {
-        ...prevState,
-        memoData: resetMemoData
-      }
-    });
+    dispatch({ type: ACTIONS.CLEAR_ALL });
   };
 
 
@@ -171,18 +111,10 @@ const useApplicationData = () => {
     copyTextToClipboard(memoText)
       .then(() => {
         // If successful, update the isCopied state value
-        setState((prevState) => ({
-          ...prevState,
-          isCopied: true,
-          copiedMemoId: memoId
-        }));
+        dispatch({ type: ACTIONS.COPY_TEXT_TRUE, payload: memoId});
 
         setTimeout(() => {
-          setState((prevState) => ({
-            ...prevState,
-            isCopied: false,
-            copiedMemoId: null
-          }));
+          dispatch({ type: ACTIONS.COPY_TEXT_FALSE });
         }, 1500)
       })
       .catch((err) => {
@@ -195,11 +127,7 @@ const useApplicationData = () => {
    * @returns {void}
    */
   const updateSearchValue = (newValue) => {
-    console.log(state.searchValue)
-    setState((prevState) => ({
-      ...prevState,
-      searchValue: newValue
-    }));
+    dispatch({ type: ACTIONS.UPDATE_SEARCH_VALUE, payload: newValue });
   };
 
   /** Updates the searchInput state based on the search input field
@@ -207,11 +135,7 @@ const useApplicationData = () => {
    * @returns {void}
    */
   const updateSearchInput = (input) => {
-    console.log(state.searchValue)
-    setState((prevState) => ({
-      ...prevState,
-      searchInput: input
-    }));
+    dispatch({ type: ACTIONS.UPDATE_SEARCH_INPUT, payload: input })
   };
   
 
