@@ -23,6 +23,7 @@ const MemoListItem = (props) => {
   const { deleteMemo, copyMemo } = useApplicationData();
   const { state, dispatch } = useAppContext();
 
+  // Effect for handling memo data saved in local storage
   useEffect(() => {
     const localMemoData = window.localStorage.getItem('memoData');
     const parsedMemoData = localMemoData ? JSON.parse(localMemoData) : window.localStorage.setItem('memoData', JSON.stringify(state.memoData));
