@@ -12,7 +12,6 @@ const useLocalStorage = () => {
   useEffect(() => {
     const localMemoData = window.localStorage.getItem('memoData');
     if (localMemoData) {
-      console.log("Inside MemoListItem UseEffect LocalMemoDataExists")
       const parsedMemoData = JSON.parse(localMemoData);
       // Set memoData in state
       dispatch({ type: ACTIONS.USE_LOCAL_STORAGE_MEMO_DATA, payload: parsedMemoData });
