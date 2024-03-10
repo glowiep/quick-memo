@@ -26,9 +26,14 @@ const MemoListItem = (props) => {
   // Effect for handling memo data saved in local storage
   useEffect(() => {
     const localMemoData = window.localStorage.getItem('memoData');
-    const parsedMemoData = localMemoData ? JSON.parse(localMemoData) : window.localStorage.setItem('memoData', JSON.stringify(state.memoData));
-    // Set memoData in state
-    dispatch({ type: ACTIONS.USE_LOCAL_STORAGE_MEMO_DATA, payload: parsedMemoData });
+    if (localMemoData) {
+      const parsedMemoData = JSON.parse(localMemoData);
+      // Set memoData in state
+      dispatch({ type: ACTIONS.USE_LOCAL_STORAGE_MEMO_DATA, payload: parsedMemoData });
+    } else {
+      // If localMemoData is not defined, set the default value in local storage
+      window.localStorage.setItem('memoData', JSON.stringify(state.memoData));
+    }
   }, [state.memoData, dispatch])
 
   return (
