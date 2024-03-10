@@ -22,7 +22,7 @@ const MemoPaper = styled(Paper)(({ theme }) => ({
 
 const MemoListItem = (props) => {
   const { deleteMemo, copyMemo } = useApplicationData();
-  const { state, dispatch } = useAppContext();
+  const { state } = useAppContext();
 
   useLocalStorage();
 

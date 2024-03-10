@@ -8,11 +8,12 @@ import '../styles/MemoList.scss'
 
 const MemoList = () => {
   const { state } = useAppContext();
-  const memoData = state.memoData;
+  // const memoData = state.memoData;
+  const memoListData = state.memoListData;
   return(
   <div className="memo-list">
     <Stack direction="row" justifyContent="center"  spacing={2} useFlexGap flexWrap="wrap">
-      {memoData && memoData.map((memo, index) => (
+      {memoListData && memoListData.map((memo, index) => (
         <MemoListItem key={memo.id} id={memo.id} memoItemData={memo.memo}/>
       ))}
     </Stack>

@@ -11,7 +11,8 @@ export const ACTIONS = {
   COPY_TEXT_FALSE: 'COPY_TEXT_FALSE',
   UPDATE_SEARCH_VALUE: 'UPDATE_SEARCH_VALUE',
   UPDATE_SEARCH_INPUT: 'UPDATE_SEARCH_INPUT',
-  USE_LOCAL_STORAGE_MEMO_DATA: 'USE_LOCAL_STORAGE_MEMO_DATA'
+  USE_LOCAL_STORAGE_MEMO_DATA: 'USE_LOCAL_STORAGE_MEMO_DATA',
+  UPDATE_MEMO_LIST_ALL_DATA: 'UPDATE_MEMO_LIST_ALL_DATA'
 }
 
 function reducer(state, action) {
@@ -46,6 +47,7 @@ function reducer(state, action) {
       return {
         ...state,
         memoData: updatedMemoData,
+        memoListData: updatedMemoData,
         createMemoText: ""  // Clear createMemoText state to reset text area value
       }
     case ACTIONS.DELETE_MEMO:
@@ -53,7 +55,9 @@ function reducer(state, action) {
       window.localStorage.setItem('memoData', JSON.stringify(updateDeleteMemoData));
       return {
         ...state,
-        memoData: updateDeleteMemoData
+        searchInput: "",
+        memoData: updateDeleteMemoData,
+        memoListData: updateDeleteMemoData
       }
     case ACTIONS.CLEAR_ALL:
       const resetMemoData = [
@@ -65,6 +69,7 @@ function reducer(state, action) {
       window.localStorage.setItem('memoData', JSON.stringify(resetMemoData));
       return {
         ...state,
+        memoListData: resetMemoData, //test
         memoData: resetMemoData
       };
     case ACTIONS.COPY_TEXT_TRUE:
@@ -85,14 +90,22 @@ function reducer(state, action) {
         searchValue: action.payload
       }
     case ACTIONS.UPDATE_SEARCH_INPUT:
+      const filteredSearchInput = state.memoData.filter(memo => memo.memo.includes(action.payload))
       return {
         ...state,
-        searchInput: action.payload
+        searchInput: action.payload,
+        memoListData:filteredSearchInput
       }
     case ACTIONS.USE_LOCAL_STORAGE_MEMO_DATA:
       return {
         ...state,
+        memoListData: action.payload, //test
         memoData: action.payload
+      }
+    case ACTIONS.UPDATE_MEMO_LIST_ALL_DATA:
+      return {
+        ...state,
+        memoListData: state.memoData
       }
     default:
       throw new Error(
@@ -117,7 +130,12 @@ const INITIAL_STATE = {
   searchValue: "",
   searchInput: "",
   searchInputIDs: [],
-  memoListData: []
+  memoListData: [
+    {
+      id: 0,
+      memo: `✨ Welcome to Quick Memo! \n\nClick the big ➕ button above to add a new memo. \n\n✅Refresh the page or close the window without losing your memos! \n✅Export your memos to a text file by clicking the export icon. `
+    }
+  ]
 }
 
 // Create context
