@@ -12,11 +12,9 @@ const SearchBar = () => {
   const memos = Array.from(new Set(memoData.map(memo => memo.memo)));
 
   useSearchInput();
-  
+  console.log("Search Bar console log SEARCH INPUT:", state.searchInput)
+  console.log("Search Bar what is current memoListData", state.memoListData)
   // Clear search input when the Autocomplete is closed
-  const handleAutocompleteClear = () => {
-    updateSearchInput("");
-  }
 
   return(
     <Autocomplete
@@ -27,10 +25,11 @@ const SearchBar = () => {
       freeSolo
       disableClearable
       options={memos}
+      value={state.searchInput}
       onChange={(e, newValue) => {
-        updateSearchValue(newValue)
+        console.log("Console.log(newValue) = ", newValue)
+        // updateSearchInput(newValue);
       }}
-      onClear={handleAutocompleteClear}
       sx={{ width: 250, margin: 1 }}
       renderInput={(params) => (
         <TextField 

@@ -85,16 +85,18 @@ function reducer(state, action) {
         copiedMemoId: null
       }
     case ACTIONS.UPDATE_SEARCH_VALUE:
+      const filteredSearchValue = state.memoData.filter(memo => memo.memo.includes(action.payload))
       return {
         ...state,
-        searchValue: action.payload
+        searchValue: action.payload,
+        memoListData: filteredSearchValue
       }
     case ACTIONS.UPDATE_SEARCH_INPUT:
       const filteredSearchInput = state.memoData.filter(memo => memo.memo.includes(action.payload))
       return {
         ...state,
         searchInput: action.payload,
-        memoListData:filteredSearchInput
+        memoListData: filteredSearchInput
       }
     case ACTIONS.USE_LOCAL_STORAGE_MEMO_DATA:
       return {

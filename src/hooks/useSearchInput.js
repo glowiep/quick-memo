@@ -10,8 +10,7 @@ const useSearchInput = () => {
   const { searchInput } = state;
 
   useEffect(() => {
-    if (searchInput !== null) {
-    } else {
+    if (searchInput === null)  {
       dispatch({type: ACTIONS.UPDATE_MEMO_LIST_ALL_DATA})
     }
   }, [searchInput]);
