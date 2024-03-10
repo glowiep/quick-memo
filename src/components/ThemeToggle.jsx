@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useAppContext } from "../contexts/AppContext";
+import { ACTIONS, useAppContext } from "../contexts/AppContext";
 import useApplicationData from "../hooks/useApplicationData";
 
 import IconButton from '@mui/material/IconButton';
@@ -8,19 +8,16 @@ import NightsStayRoundedIcon from '@mui/icons-material/NightsStayRounded';
 import { Tooltip } from '@mui/material';
 
 const ThemeToggle = () => {
-  const { state, setState } = useAppContext();
+  const { state, dispatch } = useAppContext();
 
   const { toggleTheme } = useApplicationData();
 
   useEffect(() => {
     const localTheme = window.localStorage.getItem('darkMode');
     if (localTheme) {
-      setState((prevState) => ({
-        ...prevState,
-        darkMode: localTheme === 'true'
-      }))
+      dispatch({ type: ACTIONS.SET_LOCAL_THEME, payload: localTheme === 'true' });
     }
-  }, [state.darkmode])
+  }, [state.darkmode, dispatch])
   
 
   return (
