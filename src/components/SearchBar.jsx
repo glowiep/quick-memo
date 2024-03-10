@@ -3,6 +3,7 @@ import { TextField, Autocomplete } from "@mui/material";
 
 import { useAppContext } from "../contexts/AppContext";
 import useApplicationData from "../hooks/useApplicationData";
+import useSearchInput from "../hooks/useSearchInput";
 
 const SearchBar = () => {
   const { updateSearchValue, updateSearchInput } = useApplicationData();
@@ -10,12 +11,13 @@ const SearchBar = () => {
   const memoData = state.memoData;
   const memos = Array.from(new Set(memoData.map(memo => memo.memo)));
 
+  useSearchInput();
+
   return(
     <Autocomplete
       disablePortal
       id="search-bar"
       selectOnFocus
-      clearOnBlur
       handleHomeEndKeys
       freeSolo
       options={memos}
@@ -29,8 +31,6 @@ const SearchBar = () => {
           label="Type to Search" 
           size="small"
           onChange={(e, newValue) => {
-            console.log(e.target.value)
-            console.log(newValue)
             updateSearchInput(e.target.value)
           }}
         />)
